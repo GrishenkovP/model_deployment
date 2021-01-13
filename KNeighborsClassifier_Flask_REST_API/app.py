@@ -13,12 +13,11 @@ logging.basicConfig(filename='logs/logs.log', level=logging.DEBUG)
 app = Flask(__name__)
 
 
-def predict(val_1, val_2, val_3, val_4, api):
+def predict(sepal_length, sepal_width, petal_length, petal_width, api):
     logging.info('Prediction ...')
-
-    pred_args = [val_1, val_2, val_3, val_4]
-    pred_args_ = [float(x) for x in pred_args]
-    pred_arr = np.array(pred_args_)
+    
+    pred_args = [float(x) for x in [sepal_length, sepal_width, petal_length, petal_width]]
+    pred_arr = np.array(pred_args)
     preds = pred_arr.reshape(1, -1)
     model_open = open('ml/KNeighborsClassifier_model.pkl', 'rb')
     KNeighborsClassifier_model = joblib.load(model_open)
