@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message PredictRequest {
+    float sepal_length = 1;
+    float sepal_width = 2;
+    float petal_length = 3;
+    float petal_width = 4;
+}
+
+message PredictResponse {
+    string iris_type = 1;
+}
+
+service Prediction {
+    rpc PredictIris(PredictRequest) returns (PredictResponse) {}
+}
