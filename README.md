@@ -1,2 +1,2 @@
-# Model_deployment
+# model_deployment
 Примеры развертывания моделей
